@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neurobio | Clínica Multidisciplinar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F9F9;--surf:#fff;--ink:#0B2A3A;--mut:#4B6572;--teal:#0E8F8A;--spark:#6C4DF6;--line:#D5E4E6;--wa:#1FA855;--on-wa:#fff;--pale:#E3F2F1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071C26;--surf:#0D2937;--ink:#E8F4F4;--mut:#9DB6BF;--teal:#3CC9C2;--spark:#A597FF;--line:#1B3D4C;--pale:#0F3240}}
+:root[data-theme="dark"]{--bg:#071C26;--surf:#0D2937;--ink:#E8F4F4;--mut:#9DB6BF;--teal:#3CC9C2;--spark:#A597FF;--line:#1B3D4C;--pale:#0F3240}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,system-ui,sans-serif;line-height:1.1;margin:0}a{color:inherit}:focus-visible{outline:3px solid var(--spark);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}.logo{font:800 24px 'Bricolage Grotesque',sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--spark);box-shadow:0 0 0 4px var(--pale)}
+nav a{margin-left:20px;text-decoration:none;font-weight:500;color:var(--mut)}nav a:hover{color:var(--ink)}
+@media(max-width:640px){nav a.hide{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:var(--on-wa);border:0;border-radius:999px;padding:13px 24px;font:600 16px Figtree,sans-serif;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.hero{padding:56px 0 40px}.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}}.hero h1{font-size:clamp(38px,6.5vw,68px);font-weight:800;letter-spacing:-.02em}
+.hero p{color:var(--mut);font-size:19px;max-width:46ch;margin:20px 0 28px}.hero .row{display:flex;flex-wrap:wrap;gap:12px}.net{width:100%;height:auto;color:var(--teal)}
+.net line{stroke:var(--line);stroke-width:2}.net circle{fill:var(--surf);stroke:var(--teal);stroke-width:3}.net .core{fill:var(--spark);stroke:none}
+.net .pulse{fill:var(--spark);stroke:none;offset-rotate:0deg;animation:go 3.2s ease-in-out infinite}
+@keyframes go{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
+@media(prefers-reduced-motion:reduce){.net .pulse{animation:none;opacity:0}html{scroll-behavior:auto}}
+section{padding:56px 0}section h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:10px}.lead{color:var(--mut);max-width:58ch;margin:0 0 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}.card{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.card h3{font-size:20px}.card p{margin:0;color:var(--mut);font-size:15px;flex:1}.card a{color:var(--teal);font-weight:600;text-decoration:none;margin-top:6px}.card a:hover{text-decoration:underline}
+.book{background:var(--pale);border-radius:22px;padding:32px;display:grid;grid-template-columns:1fr 1.2fr;gap:32px}@media(max-width:820px){.book{grid-template-columns:1fr;padding:22px}}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}form .full{grid-column:1/-1}@media(max-width:520px){form{grid-template-columns:1fr}}
+label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}input,select{font:400 16px Figtree,sans-serif;padding:12px;border-radius:10px;border:1.5px solid var(--line);background:var(--surf);color:var(--ink);width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{background:var(--surf);border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;text-decoration:none;font-weight:500}.chip:hover{border-color:var(--teal);color:var(--teal)}
+.preview{font-size:14px;color:var(--mut);background:var(--surf);border-radius:10px;padding:10px 12px;border:1px dashed var(--line)}
+footer{border-top:1px solid var(--line);padding:32px 0 96px;color:var(--mut);font-size:15px}.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top"><i></i>Neurobio</a>
+<nav><a class="hide" href="#especialidades">Especialidades</a><a href="#agendar">Agendar</a><a class="hide" href="#duvidas">Dúvidas</a></nav>
+</div></header>
+<main id="top">
+<div class="hero"><div class="wrap">
+<div><h1>Cuidado que conecta corpo, mente e desenvolvimento.</h1>
+<p>Na Neurobio, profissionais de várias áreas trabalham juntos no mesmo plano de cuidado. Você agenda direto pelo WhatsApp.</p>
+<div class="row"><a class="btn wa" data-msg="Olá! Gostaria de agendar uma consulta na clínica Neurobio.">Agendar pelo WhatsApp</a><a class="btn ghost" href="#especialidades">Ver especialidades</a></div></div>
+<svg class="net" viewBox="0 0 400 320" role="img" aria-label="Rede de neurônios conectados"><g>
+<line x1="200" y1="160" x2="70" y2="70"/><line x1="200" y1="160" x2="330" y2="60"/><line x1="200" y1="160" x2="60" y2="250"/><line x1="200" y1="160" x2="340" y2="255"/><line x1="200" y1="160" x2="200" y2="30"/><line x1="70" y1="70" x2="200" y2="30"/><line x1="330" y1="60" x2="200" y2="30"/><line x1="60" y1="250" x2="70" y2="70"/><line x1="340" y1="255" x2="330" y2="60"/>
+<circle cx="70" cy="70" r="14"/><circle cx="330" cy="60" r="16"/><circle cx="60" cy="250" r="15"/><circle cx="340" cy="255" r="14"/><circle cx="200" cy="30" r="12"/><circle class="core" cx="200" cy="160" r="30"/>
+<circle class="pulse" r="6" cx="200" cy="160" style="--dx:-130px;--dy:-90px"/><circle class="pulse" r="6" cx="200" cy="160" style="--dx:130px;--dy:-100px;animation-delay:.8s"/><circle class="pulse" r="6" cx="200" cy="160" style="--dx:-140px;--dy:90px;animation-delay:1.6s"/><circle class="pulse" r="6" cx="200" cy="160" style="--dx:140px;--dy:95px;animation-delay:2.4s"/>
+</g></svg></div></div>
+<section id="especialidades"><div class="wrap"><h2>Especialidades</h2><p class="lead">Escolha a área e envie uma mensagem já pronta para a nossa equipe. Sem formulários longos.</p><div class="grid" id="esp"></div></div></section>
+<section id="agendar"><div class="wrap"><div class="book"><div><h2>Peça seu horário</h2><p class="lead">Preencha os dados e o WhatsApp abre com a mensagem pronta. A equipe confirma o horário com você por lá.</p><div class="preview" id="prev" aria-live="polite"></div></div>
+<form id="f"><label class="full">Nome completo<input id="nome" required autocomplete="name"></label><label>Especialidade<select id="esps" required></select></label><label>Atendimento<select id="tipo"><option>Particular</option><option>Convênio</option></select></label><label>Data desejada<input id="data" type="date" required></label><label>Período<select id="per"><option>Manhã</option><option>Tarde</option><option>Noite</option></select></label><label class="full">Para quem é a consulta?<select id="para"><option>Para mim</option><option>Para meu filho(a)</option><option>Para um familiar</option></select></label><button class="btn full" type="submit">Enviar pedido no WhatsApp</button></form>
+</div></div></section>
+<section id="duvidas"><div class="wrap"><h2>Precisa de outra coisa?</h2><p class="lead">Toque em um assunto e a mensagem é enviada pronta para a Neurobio.</p><div class="chips" id="chips"></div></div></section>
+</main>
+<footer><div class="wrap"><strong>Neurobio · Clínica Multidisciplinar</strong><br>WhatsApp: <a href="#" class="wa" data-msg="Olá! Gostaria de mais informações sobre a clínica Neurobio.">(22) 99104-3020</a></div></footer>
+<a class="btn fab wa" data-msg="Olá! Vim pelo site e gostaria de falar com a clínica Neurobio.">Fale conosco no WhatsApp</a>
+<script>
+const NUM="5522991043020";const link=m=>"https://wa.me/"+NUM+"?text="+encodeURIComponent(m);
+const ESP=[["Neurologia","Avaliação e acompanhamento de cérebro e sistema nervoso."],["Psiquiatria","Cuidado com saúde mental, diagnóstico e tratamento."],["Psicologia","Terapia para crianças, adolescentes e adultos."],["Neuropsicologia","Avaliação de atenção, memória e aprendizagem."],["Fonoaudiologia","Fala, linguagem, voz e deglutição."],["Terapia ocupacional","Autonomia, coordenação e integração sensorial."],["Psicopedagogia","Apoio às dificuldades de aprendizagem."],["Fisioterapia","Reabilitação motora e prevenção de dores."],["Nutrição","Plano alimentar para cada fase e objetivo."]];
+const CH=[["Valores das consultas","Olá! Gostaria de saber os valores das consultas na Neurobio."],["Convênios aceitos","Olá! Quais convênios a Neurobio atende?"],["Horários e endereço","Olá! Poderia me informar os horários de funcionamento e o endereço da clínica?"],["Primeira consulta","Olá! Será minha primeira consulta. Como funciona o atendimento inicial na Neurobio?"],["Remarcar ou cancelar","Olá! Preciso remarcar ou cancelar uma consulta na Neurobio."],["Falar com a recepção","Olá! Gostaria de falar com a recepção da Neurobio."]];
+const esp=document.getElementById("esp"),sel=document.getElementById("esps"),ch=document.getElementById("chips");
+ESP.forEach(([n,d])=>{esp.insertAdjacentHTML("beforeend",`<div class="card"><h3>${n}</h3><p>${d}</p><a href="${link("Olá! Gostaria de agendar uma consulta de "+n+" na clínica Neurobio.")}" target="_blank" rel="noopener">Agendar ${n.toLowerCase()}</a></div>`);sel.add(new Option(n,n));});
+CH.forEach(([t,m])=>ch.insertAdjacentHTML("beforeend",`<a class="chip" target="_blank" rel="noopener" href="${link(m)}">${t}</a>`));
+document.querySelectorAll(".wa").forEach(a=>{a.href=link(a.dataset.msg);a.target="_blank";a.rel="noopener"});
+const $=id=>document.getElementById(id);const d=$("data");d.min=new Date().toISOString().slice(0,10);
+function msg(){const dt=d.value?d.value.split("-").reverse().join("/"):"[data]";return `Olá! Meu nome é ${$("nome").value||"[nome]"}. Gostaria de agendar uma consulta de ${sel.value} (${$("tipo").value.toLowerCase()}), ${$("para").value.toLowerCase()}, preferencialmente em ${dt} no período da ${$("per").value.toLowerCase()}. Aguardo confirmação. Obrigado(a)!`;}
+const upd=()=>$("prev").textContent=msg();$("f").addEventListener("input",upd);upd();$("f").addEventListener("submit",e=>{e.preventDefault();window.open(link(msg()),"_blank","noopener")});
+</script>
+</body>
+</html>
