@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ateliê Lume — Salão de Beleza</title>
+<meta name="description" content="Cortes, coloração, escova e tratamentos. Veja os preços e agende seu horário online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#24172B;--paper:#FBF8FC;--orchid:#7B4B94;--rose:#E8577E;--mist:#EFE6F4;--line:#DCCEE5;--display:'Bricolage Grotesque',Georgia,serif;--body:'Figtree',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}body{font:400 1.0625rem/1.6 var(--body);color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}a{color:inherit}:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}header{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+.logo{font:800 1.4rem var(--display);text-decoration:none}.logo span{color:var(--rose)}nav{display:flex;gap:1.5rem}nav a{text-decoration:none;font-weight:500}nav a:hover{color:var(--orchid)}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--ink);color:var(--paper);font:600 1rem var(--body);padding:.9rem 1.6rem;border-radius:999px;text-decoration:none;transition:background .2s}.btn:hover{background:var(--orchid)}.btn.rose{background:var(--rose)}.btn.rose:hover{background:#cf3f66}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center;padding:3rem 0 4.5rem}.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);font-weight:800}.hero p{max-width:32rem;margin:1.5rem 0 2rem;font-size:1.2rem}
+.status{display:inline-flex;align-items:center;gap:.6rem;background:var(--mist);padding:.45rem 1rem;border-radius:999px;font-weight:600;font-size:.95rem;margin-bottom:1.5rem}.dot{width:.65rem;height:.65rem;border-radius:50%;background:#9a8aa5}
+.status.open .dot{background:#2fa66a;box-shadow:0 0 0 0 rgba(47,166,106,.6);animation:pulse 2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(47,166,106,0)}100%{box-shadow:0 0 0 0 rgba(47,166,106,0)}}
+.arch{background:linear-gradient(160deg,var(--orchid),var(--rose));border-radius:999px 999px 1.5rem 1.5rem;aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center;padding:2rem;color:#fff}.arch b{font:700 1.5rem/1.15 var(--display);text-align:center}
+@media(prefers-reduced-motion:reduce){.status.open .dot{animation:none}html{scroll-behavior:auto}}
+section{padding:4rem 0;border-top:1px solid var(--line)}section>.wrap>h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:.6rem}.lead{max-width:36rem;margin-bottom:2.2rem;color:#5b4a66}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2.5rem}.groups h3{font-size:1.5rem;margin-bottom:.8rem;color:var(--orchid)}
+.item{display:flex;align-items:baseline;gap:.5rem;width:100%;background:none;border:0;border-bottom:1px dashed var(--line);padding:.75rem 0;font:inherit;color:inherit;text-align:left;cursor:pointer}.item:hover .n{color:var(--rose)}.item .n{font-weight:600}.item small{display:block;font-weight:400;color:#6c5a78;font-size:.9rem}.item .p{margin-left:auto;font-weight:700;white-space:nowrap}
+#agendar{background:var(--ink);color:var(--paper);border:0}#agendar .lead{color:#cbbbd6}.book{display:grid;grid-template-columns:1fr 1fr;gap:2rem;background:var(--paper);color:var(--ink);border-radius:1.5rem;padding:2rem}
+.book label,.legend{display:block;font-weight:600;margin:0 0 .4rem}.field{margin-bottom:1.2rem}select,input{width:100%;font:inherit;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:.75rem;background:#fff;color:var(--ink)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:.5rem}.slot{padding:.65rem 0;border:1.5px solid var(--line);border-radius:.75rem;background:#fff;font:600 .95rem var(--body);cursor:pointer;color:var(--ink)}.slot:hover:not(:disabled){border-color:var(--orchid)}.slot[aria-pressed=true]{background:var(--orchid);border-color:var(--orchid);color:#fff}.slot:disabled{background:var(--mist);color:#a898b3;text-decoration:line-through;cursor:not-allowed}
+.hint{font-size:.95rem;color:#6c5a78;margin-top:.5rem}.summary{background:var(--mist);border-radius:.75rem;padding:1rem;margin:1rem 0;font-size:.98rem}.summary strong{font-family:var(--display);font-size:1.3rem}.err{color:#b3223f;font-weight:600;min-height:1.5rem;margin-bottom:.5rem}
+.hours{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}.hours dl{display:grid;grid-template-columns:1fr auto;gap:.5rem 1.5rem}.hours dt{font-weight:600}.hours .today{color:var(--rose)}footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:#5b4a66;font-size:.95rem}
+@media(max-width:820px){.hero,.book{grid-template-columns:1fr}.arch{max-width:280px;aspect-ratio:1/1;border-radius:999px 999px 1.5rem 1.5rem}nav a:not(.btn){display:none}.book{padding:1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="logo" href="#">Ateliê <span>Lume</span></a><nav><a href="#precos">Preços</a><a href="#horarios">Horários</a><a class="btn" href="#agendar">Agendar</a></nav></header>
+<div class="hero"><div><div class="status" id="status"><span class="dot"></span><span id="statusText">Verificando…</span></div><h1>Cabelo bonito começa com quem escuta.</h1><p>Corte, cor e cuidado com hora marcada. Escolha o serviço, o dia e o horário livre em menos de um minuto.</p><a class="btn rose" href="#agendar">Agendar meu horário</a></div><div class="arch" aria-hidden="true"><b>Rua das Flores, 120<br>Centro</b></div></div>
+</div>
+<section id="precos"><div class="wrap"><h2>Tabela de preços</h2><p class="lead">Valores a partir de. Cabelos longos ou muito volumosos podem ter acréscimo, combinado antes de começar. Toque em um serviço para agendá-lo.</p><div class="groups" id="groups"></div></div></section>
+<section id="agendar"><div class="wrap"><h2>Agende online</h2><p class="lead">Escolha o serviço, o dia e um horário livre. Enviamos o pedido pelo WhatsApp e confirmamos com você.</p><div class="book"><div>
+<div class="field"><label for="service">Serviço</label><select id="service"></select></div>
+<div class="field"><label for="date">Dia</label><input type="date" id="date"><p class="hint" id="dateHint"></p></div>
+<div class="field"><span class="legend" id="slotsLabel">Horário</span><div class="slots" id="slots" role="group" aria-labelledby="slotsLabel"></div></div>
+</div><div>
+<div class="field"><label for="name">Seu nome</label><input id="name" autocomplete="name" placeholder="Maria Silva"></div>
+<div class="field"><label for="phone">Seu telefone</label><input id="phone" type="tel" autocomplete="tel" placeholder="(22) 99999-9999"></div>
+<div class="summary" id="summary">Escolha serviço, dia e horário para ver o resumo.</div><p class="err" id="err" role="alert"></p><button class="btn rose" id="send" type="button">Enviar pedido pelo WhatsApp</button>
+</div></div></div></section>
+<section id="horarios"><div class="wrap"><h2>Horário de funcionamento</h2><p class="lead">Atendemos somente com hora marcada.</p><div class="hours"><dl id="hoursList"></dl><div><p><strong>Endereço</strong><br>Rua das Flores, 120 — Centro</p><p style="margin-top:1rem"><strong>WhatsApp</strong><br>(22) 99999-9999</p><p style="margin-top:1rem"><strong>Cancelamentos</strong><br>Avise com 3 horas de antecedência para liberar o horário.</p></div></div></div></section>
+<footer><div class="wrap">© <span id="year"></span> Ateliê Lume. Todos os direitos reservados.</div></footer>
+<script>
+const WHATSAPP="5522999999999",SLOT_MIN=60;
+const HORARIOS={0:null,1:null,2:[9,19],3:[9,19],4:[9,19],5:[9,19],6:[8,17]};
+const SERVICOS=[
+{g:"Cabelo",n:"Corte feminino",d:"Lavagem e finalização",p:90},{g:"Cabelo",n:"Corte masculino",d:"Máquina ou tesoura",p:55},{g:"Cabelo",n:"Barba",d:"Toalha quente",p:35},{g:"Cabelo",n:"Escova",d:"Modelada ou lisa",p:60},
+{g:"Cor e química",n:"Coloração",d:"Raiz ou cabelo todo",p:160},{g:"Cor e química",n:"Mechas / luzes",d:"Inclui tonalização",p:320},{g:"Cor e química",n:"Progressiva",d:"Alisamento sem formol",p:250},
+{g:"Cuidados",n:"Hidratação",d:"Reposição de massa e brilho",p:80},{g:"Cuidados",n:"Cauterização",d:"Tratamento profundo",p:130},{g:"Cuidados",n:"Manicure",d:"Mãos com esmaltação",p:40}];
+const DIAS=["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"],$=id=>document.getElementById(id),brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"}),pad=n=>String(n).padStart(2,"0"),fmtH=h=>pad(Math.floor(h))+":"+pad(Math.round((h%1)*60)),iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+let chosen=null;
+const groups={};SERVICOS.forEach((s,i)=>(groups[s.g]??=[]).push({...s,i}));
+$("groups").innerHTML=Object.entries(groups).map(([g,list])=>`<div><h3>${g}</h3>${list.map(s=>`<button class="item" data-i="${s.i}"><span class="n">${s.n}<small>${s.d}</small></span><span class="p">${brl(s.p)}</span></button>`).join("")}</div>`).join("");
+$("service").innerHTML=`<option value="">Selecione…</option>`+SERVICOS.map((s,i)=>`<option value="${i}">${s.n} — ${brl(s.p)}</option>`).join("");
+$("groups").addEventListener("click",e=>{const b=e.target.closest(".item");if(!b)return;$("service").value=b.dataset.i;update();$("agendar").scrollIntoView({behavior:"smooth"})});
+const hoje=new Date().getDay();
+$("hoursList").innerHTML=[2,3,4,5,6,0,1].map(d=>{const h=HORARIOS[d];return`<dt class="${d===hoje?"today":""}">${DIAS[d]}</dt><dd class="${d===hoje?"today":""}">${h?fmtH(h[0])+" às "+fmtH(h[1]):"Fechado"}</dd>`}).join("");
+function status(){const now=new Date(),h=HORARIOS[now.getDay()],cur=now.getHours()+now.getMinutes()/60,el=$("status"),t=$("statusText");if(h&&cur>=h[0]&&cur<h[1]){el.classList.add("open");t.textContent="Aberto agora — fecha às "+fmtH(h[1])}else{el.classList.remove("open");for(let i=0;i<=7;i++){const d=new Date(now.getTime()+i*864e5),hh=HORARIOS[d.getDay()];if(hh&&(i>0||cur<hh[0])){t.textContent="Fechado — abre "+(i===0?"hoje":i===1?"amanhã":DIAS[d.getDay()].toLowerCase())+" às "+fmtH(hh[0]);break}}}}status();setInterval(status,6e4);
+const dateEl=$("date"),today=new Date();today.setHours(0,0,0,0);dateEl.min=iso(today);const max=new Date(today);max.setDate(max.getDate()+60);dateEl.max=iso(max);
+function ocupado(dateStr,h){let x=0,s=dateStr+h;for(let i=0;i<s.length;i++)x=(x*31+s.charCodeAt(i))>>>0;return x%4===0}
+function renderSlots(){const box=$("slots");chosen=null;box.innerHTML="";if(!dateEl.value){$("dateHint").textContent="";box.innerHTML='<p class="hint">Escolha um dia para ver os horários.</p>';return}
+const[y,m,d]=dateEl.value.split("-").map(Number),day=new Date(y,m-1,d),h=HORARIOS[day.getDay()];if(!h){const abertos=Object.keys(HORARIOS).filter(k=>HORARIOS[k]).map(k=>DIAS[k].toLowerCase()).join(", ");$("dateHint").textContent="Fechado neste dia. Atendemos: "+abertos+".";return}
+$("dateHint").textContent=DIAS[day.getDay()]+", "+fmtH(h[0])+" às "+fmtH(h[1]);const now=new Date(),isToday=iso(now)===dateEl.value,cur=now.getHours()+now.getMinutes()/60,step=SLOT_MIN/60;
+for(let t=h[0];t+step<=h[1];t+=step){const b=document.createElement("button");b.type="button";b.className="slot";b.textContent=fmtH(t);b.setAttribute("aria-pressed","false");if((isToday&&t<=cur)||ocupado(dateEl.value,t)){b.disabled=true;b.title="Indisponível"}b.onclick=()=>{box.querySelectorAll(".slot").forEach(s=>s.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");chosen=fmtH(t);update()};box.appendChild(b)}
+if(!box.querySelector(".slot:not(:disabled)"))box.insertAdjacentHTML("beforeend",'<p class="hint">Sem horários livres neste dia. Tente outra data.</p>')}
+function fmtDate(){if(!dateEl.value)return"";const[y,m,d]=dateEl.value.split("-").map(Number);return DIAS[new Date(y,m-1,d).getDay()]+", "+pad(d)+"/"+pad(m)+"/"+y}
+function update(){const s=SERVICOS[$("service").value];if(s&&dateEl.value&&chosen)$("summary").innerHTML=`<strong>${s.n}</strong><br>${fmtDate()} às ${chosen}<br>A partir de ${brl(s.p)}`;else $("summary").textContent="Escolha serviço, dia e horário para ver o resumo.";$("err").textContent=""}
+$("service").addEventListener("change",update);dateEl.addEventListener("change",()=>{renderSlots();update()});
+$("send").addEventListener("click",()=>{const s=SERVICOS[$("service").value],name=$("name").value.trim(),phone=$("phone").value.trim(),err=$("err");if(!s)return err.textContent="Escolha um serviço.";if(!dateEl.value)return err.textContent="Escolha um dia.";if(!chosen)return err.textContent="Escolha um horário livre.";if(!name)return err.textContent="Informe seu nome.";if(phone.replace(/\D/g,"").length<10)return err.textContent="Informe um telefone com DDD.";const msg=`Olá! Quero agendar:\n\nServiço: ${s.n} (${brl(s.p)})\nDia: ${fmtDate()}\nHorário: ${chosen}\nNome: ${name}\nTelefone: ${phone}`;window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank","noopener")});
+renderSlots();$("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
